@@ -1,0 +1,13 @@
+<button *ngIf="!connected()" (click)="initiateConnection()">Initiate Connection</button>
+<div *ngIf="connected()">
+    <p>Received Messages</p>
+    <p *ngFor="let x of receivedMsgs">{{x}}</p>
+
+    <p>Send Message</p>
+    <input type="text" [(ngModel)]="inputFieldValue">
+    <button (click)="sendMessage(inputFieldValue)">Send</button>
+
+</div>
+
+<button *ngIf="connected()" (click)="destroyConnection()">Destroy Connection</button>
+
